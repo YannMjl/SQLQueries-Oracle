@@ -30,6 +30,11 @@ Order by CompanyName;
 
 -- 6. list the minimum, maximum, and average item price of all items
 -- with an item cost greater than $2000.
-Select Min(ItemCost) As "Minimun Price", Avg(ItemCost) As "Average Price", Max(ItemCost) as "Maximum Price"
+Select Min(ItemPrice) As "Minimun Price", ROUND (Avg(ItemPrice), 2) As "Average Price", Max(ItemPrice) as "Maximum Price"
 From item
-Where ItemCost > 2000;
+Where ItemPrice > 2000;
+
+-- 7. count the number of items that have a price above $4000
+Select COUNT(*) AS "Num of Items With price Over $4000"
+From item
+Where ItemPrice > 4000;
