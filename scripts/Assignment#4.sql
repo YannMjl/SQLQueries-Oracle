@@ -112,3 +112,29 @@ GROUP BY
     customer.LastName,
     customer.Phone
 ORDER BY customer.CustomerID DESC;
+
+-- 17.  show all items and the customers who have purchased them.
+-- The output from this statement should include items (if any) that have not been purchased by
+-- a customer. The SQL statement output should list CustomerID, LastName, FirstName, SaleID,
+-- SaleItemID, ItemID, and ItemDescription.
+
+
+-- To be checked tomorrow
+SELECT customer.CustomerID,
+    customer.FirstName,
+    customer.LastName,
+    sale.SaleID,
+    sale_item.SaleItemID,
+    item.ItemID,
+    item.ItemDescription
+From customer join sale on customer.CustomerID = sale.CustomerID,
+    sale join sale_item on sale.SaleID = sale_item.SaleID,
+    sale_item join item on sale_item.ItemID = item.ItemID
+GROUP BY 
+    customer.CustomerID, 
+    customer.FirstName,
+    customer.LastName,
+    sale.SaleID,
+    sale_item.SaleItemID,
+    item.ItemID,
+    item.ItemDescription;
