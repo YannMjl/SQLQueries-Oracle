@@ -27,3 +27,9 @@ Select CompanyName, Fax
 From vendor
 Where Fax is not Null
 Order by CompanyName;
+
+-- 6. list the minimum, maximum, and average item price of all items
+-- with an item cost greater than $2000.
+Select Min(ItemCost) As "Minimun Price", Avg(ItemCost) As "Average Price", Max(ItemCost) as "Maximum Price"
+From item
+Where ItemCost > 2000;
