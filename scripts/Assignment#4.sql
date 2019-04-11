@@ -95,3 +95,20 @@ SELECT vendor.CompanyName, vendor.Phone, Avg(item.ItemCost) AS "Average Item Cos
 From vendor join item on vendor.VendorID = item.VendorID
 GROUP BY 
     vendor.CompanyName, vendor.Phone;
+
+
+-- 16. show the sum of SubTotal for each customer. The output should list CustomerID, 
+-- LastName, FirstName, Phone, and the sum of SubTotals for each
+-- customer. Sort the results by CustomerID, in descending order.
+SELECT customer.CustomerID, 
+       customer.FirstName,
+       customer.LastName,
+       customer.Phone,
+       Sum(sale.SubTotal) AS "Sum of Sub Total per Customer"
+From customer join sale on customer.CustomerID = sale.CustomerID 
+GROUP BY 
+    customer.CustomerID, 
+    customer.FirstName,
+    customer.LastName,
+    customer.Phone
+ORDER BY customer.CustomerID DESC;
