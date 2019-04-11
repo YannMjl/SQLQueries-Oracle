@@ -20,3 +20,10 @@ Where LastName = 'Stuart' or FirstName = 'John';
 Select ItemDescription, ItemCost
 From item
 Where ItemCost between 595 and 705;
+
+-- 5. list the company names and fax numbers of all vendors who have a fax number 
+-- listed in the table. Sort the result in descending order by company name. 
+Select CompanyName, Fax
+From vendor
+Where Fax is not Null
+Order by CompanyName;
