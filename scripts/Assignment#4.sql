@@ -1,4 +1,6 @@
 -- Assignment #4 - SQL Part 1
+-- Author : Yann Mulonda
+-- Date : April 11, 2019
 
 -- 1. list all columns for customers with a Seattle address
 Select *
@@ -38,3 +40,8 @@ Where ItemPrice > 2000;
 Select COUNT(*) AS "Num of Items With price Over $4000"
 From item
 Where ItemPrice > 4000;
+
+-- 8. list the item description of all items whose description starts with “Antique”.
+Select ItemDescription
+From item
+Where ItemDescription Like 'Antique%';
