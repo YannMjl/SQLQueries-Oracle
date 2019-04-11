@@ -63,3 +63,8 @@ Where CustomerID IN
     (Select CustomerID
      From sale
      Where SaleID = 1);
+
+-- 12. Answer the previous question but use a join using JOIN ON syntax instead of a subquery
+Select FirstName, LastName, Phone
+From Customer JOIN Sale ON Customer.CustomerID = Sale.CustomerID
+Where Sale.SaleID = 1;
