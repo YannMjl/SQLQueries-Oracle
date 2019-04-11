@@ -14,3 +14,9 @@ From Customer;
 Select Firstname, LastName
 From employee
 Where LastName = 'Stuart' or FirstName = 'John';
+
+-- 4. list the item description and item cost of all items
+-- with a cost between $595 and $705.
+Select ItemDescription, ItemCost
+From item
+Where ItemCost between 595 and 705;
