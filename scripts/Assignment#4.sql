@@ -45,3 +45,21 @@ Where ItemPrice > 4000;
 Select ItemDescription
 From item
 Where ItemDescription Like 'Antique%';
+
+-- 9.  list ItemID and Description for all items that cost $1000 or more and
+-- were purchased from a vendor whose CompanyName starts with the letters New.
+Select Item.ItemID, Item.ItemDescription
+From Item JOIN Vendor ON Item.VendorID = Vendor.VendorID
+Where Item.ItemPrice > 1000
+    And Vendor.CompanyName Like 'New%';
+
+-- 10. My Favorite IceScream flavor is Vanila
+
+-- 11. list LastName, FirstName, and Phone of the customer 
+-- who made the purchase with SaleID 1. Use a subquery.
+Select FirstName, LastName, Phone
+From customer
+Where CustomerID IN
+    (Select CustomerID
+     From sale
+     Where SaleID = 1);
