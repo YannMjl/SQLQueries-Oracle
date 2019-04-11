@@ -68,3 +68,30 @@ Where CustomerID IN
 Select FirstName, LastName, Phone
 From Customer JOIN Sale ON Customer.CustomerID = Sale.CustomerID
 Where Sale.SaleID = 1;
+
+-- 13.  list LastName, FirstName, and Phone of the customers who
+-- made the purchase with SaleIDs 1, 2, and 3. Use a subquery
+Select FirstName, LastName, Phone
+From customer
+Where CustomerID IN
+    (Select CustomerID
+     From sale
+     Where SaleID = 1
+        or SaleID = 2
+        or SaleID = 3);
+
+
+-- 14.  list LastName, FirstName, and Phone of the customers who made
+-- the purchase with SaleIDs 1, 2, and 3. Use a join with JOIN ON syntax.
+Select FirstName, LastName, Phone
+From Customer JOIN Sale ON Customer.CustomerID = Sale.CustomerID
+Where Sale.SaleID = 1
+   or Sale.SaleID = 2
+   or Sale.SaleID = 3;
+
+-- 15. show the average item cost for each vendor. The output should list 
+-- vendor company names, vendor phone numbers, and the average item cost.
+SELECT vendor.CompanyName, vendor.Phone, Avg(item.ItemCost) AS "Average Item Cost"
+From vendor join item on vendor.VendorID = item.VendorID
+GROUP BY 
+    vendor.CompanyName, vendor.Phone;
