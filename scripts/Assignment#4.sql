@@ -1,7 +1,8 @@
--- Assignment #4 - SQL Part 1
--- Author : Yann Mulonda
--- Date : April 11, 2019
-
+-- ************************************************************************************************
+-- Assignment #4 - SQL Part 1                                                                     *
+-- Author : Yann Mulonda                                                                          *
+-- Date : April 11, 2019                                                                          *
+-- ************************************************************************************************
 -- 1. list all columns for customers with a Seattle address
 Select *
 From Customer
@@ -32,7 +33,9 @@ Order by CompanyName;
 
 -- 6. list the minimum, maximum, and average item price of all items
 -- with an item cost greater than $2000.
-Select Min(ItemPrice) As "Minimun Price", ROUND (Avg(ItemPrice), 2) As "Average Price", Max(ItemPrice) as "Maximum Price"
+Select Min(ItemPrice) As "Minimun Price", 
+    ROUND (Avg(ItemPrice), 2) As "Average Price", 
+    Max(ItemPrice) as "Maximum Price"
 From item
 Where ItemPrice > 2000;
 
@@ -138,3 +141,6 @@ GROUP BY
     sale_item.SaleItemID,
     item.ItemID,
     item.ItemDescription;
+
+-- End
+-- ************************************************************************************************
