@@ -1,12 +1,10 @@
-# SQLQueries-Oracle
+# SQLQueries-Oracle Scripts
 
 ## Description
 
 These are Oracle script for creating tables and relationships
 
-### P.S
-
-These scripts are Oracle-specific
+### P.S: These scripts are Oracle-specific
 
 ## Author
 
