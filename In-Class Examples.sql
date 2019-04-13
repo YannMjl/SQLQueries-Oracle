@@ -85,4 +85,13 @@ CREATE TABLE Customer (
         CONSTRAINT CustomerPK PRIMARY KEY (CustomerID)
 );
 
+CREATE TABLE Invoice (
+        InvoiceNumber   INT             NOT NULL,
+        InvoiceDate     VARCHAR(20)     NOT NULL,
+        CustomerID      VARCHAR(20)     NOT NULL,
+    
+        CONSTRAINT InvoicePK PRIMARY KEY (InvoiceNumber),
+        CONSTRAINT CustomerID_FK FOREIGN KEY (CustomerID)
+);
+
 
