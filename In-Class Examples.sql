@@ -68,14 +68,12 @@ FROM CUSTOMER LEFT JOIN INVOICE ON CUSTOMER.CustomerId = INVOICE.CustomerID;
 SELECT FirstName, LastName, InvoiceNumber, Total
 FROM INVOICE RIGHT JOIN CUSTOMER ON CUSTOMER.CustomerId = INVOICE.CustomerID;
 
-
 -- List customer names of customers who have purchased videos (producttype in Product) 
 SELECT DISTINCT FirstName, LastName
 FROM CUSTOMER JOIN INVOICE ON CUSTOMER.CustomerId = INVOICE.CustomerID
               JOIN LINE_ITEM ON LINE_ITEM.InvoiceNumber = INVOICE.InvoiceNumber
               JOIN PRODUCT ON PRODUCT.ProductNumber = LINE_ITEM.ProductNumber
 WHERE ProductType = 'Video';
-
 
 -- *********************************************************************************************************
 -- Create tables statments                                                                                 *
