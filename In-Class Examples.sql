@@ -110,4 +110,7 @@ ALTER TABLE CUSTOMER
 ALTER TABLE CUSTOMER 
     -- Check that the city where our customer live are only Dallas, San Antonie, and Auston
     ADD     CONSTRAINT CityOptions CHECK (City IN ('Dallas', 'San Antonio', 'Auston'));
+                                                   
+ALTER TABLE CUSTOMER 
+    DROP    CONSTRAINT    CityOptions;
 
