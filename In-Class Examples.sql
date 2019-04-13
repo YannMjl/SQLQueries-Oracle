@@ -122,4 +122,7 @@ UPDATE CUSTOMER
 SET City = 'Dallas'
 WHERE LastName = 'Smith' AND FirstName = 'Jane';
                                                    
+DELETE FROM Customer
+WHERE LastName = 'Mulonda' AND FirstName = 'Yann';
+                                                   
 -- *********************************************************************************************************
