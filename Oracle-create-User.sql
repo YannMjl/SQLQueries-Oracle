@@ -1,7 +1,6 @@
 -- ***********************************************************************************
 -- This command runs using the currently logged in user. The file assumes that you   * 
--- have already connected to Oracle using SYSTEM/Password on your personal machine   * 
--- or SU/SuperUser_S1 if you are using OSS machines.                                 *
+-- have already connected to Oracle using SYSTEM/Password on your personal machine   *                                  
 -- ***********************************************************************************
 
 -- Edit XYZ anywhere in this file to indicate your username and choose a PASSWORD for 
