@@ -73,9 +73,9 @@ FROM CUSTOMER JOIN INVOICE ON CUSTOMER.CustomerId = INVOICE.CustomerID
 WHERE ProductType = 'Video';
 
 
--- **************************************************************************************
--- Create tables statments                                                              *
--- **************************************************************************************
+-- *********************************************************************************************************
+-- Create tables statments                                                                                 *
+-- *********************************************************************************************************
 
 -- Create customer table
 CREATE TABLE Customer (
@@ -93,7 +93,17 @@ CREATE TABLE Invoice (
     
         CONSTRAINT InvoicePK PRIMARY KEY (InvoiceNumber),
         CONSTRAINT CustomerID_FK FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
-        CONSTRAINT PaymentTypeCheck CHECK (PaymentType IN ('Visa', 'Cash', 'Master card')
+        CONSTRAINT PaymentTypeCheck CHECK (PaymentType IN ('Visa', 'Cash', 'MasterCard', 'Check')
 );
 
+-- *********************************************************************************************************
+-- Alter tables statments                                                                                  *
+-- *********************************************************************************************************
+
+ALTER TABLE CUSTOMER 
+    ADD     City    VARCHAR(20)     NULL;
+    
+ALTER TABLE CUSTOMER 
+    -- Check that the city where our customer live are only Dallas, San Antonie, and Auston
+    ADD     CONSTRAINT CityOptions CHECK (City IN ('Dallas', 'San Antonio', 'Auston'));
 
