@@ -87,11 +87,13 @@ CREATE TABLE Customer (
 
 CREATE TABLE Invoice (
         InvoiceNumber   INT             NOT NULL,
-        InvoiceDate     VARCHAR(20)     NOT NULL,
-        CustomerID      VARCHAR(20)     NOT NULL,
+        InvoiceDate     DATE            NOT NULL,
+        CustomerID      INT             NOT NULL,
+        PaymentType     VARCHAR(15)     NOT NULL,
     
         CONSTRAINT InvoicePK PRIMARY KEY (InvoiceNumber),
-        CONSTRAINT CustomerID_FK FOREIGN KEY (CustomerID)
+        CONSTRAINT CustomerID_FK FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+        CONSTRAINT PaymentTypeCheck CHECK (PaymentType IN ('Visa', 'Cash', 'Master card')
 );
 
 
