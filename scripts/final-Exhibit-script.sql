@@ -50,32 +50,43 @@ WHERE EmployeeID = 275506921;
 
 
 -- Exhibit D, Part F - Total Hours Worked Per Skill Classification
-SELECT JobSkillCode
+SELECT JobSkillCode, 
+FROM Pay_Info;
 
 -- Exhibit E - General Employee Information
-SELECT E.FirstName, 
+SELECT E.FirstName,
+    E.MiddleInitial,
     E.LastName, 
-    E.Street, 
-    E.City, 
-    E.State, 
-    E.ZipCode, 
+    EA.Address AS 'Street', 
+    EA.City, 
+    EA.State, 
+    EA.ZipCode, 
     E.Phone, 
     E.DOB, 
-    E.Gender, 
-    E.MaritalStatus, 
-    EEOCode
-FROM Employee as E JOIN Employee_Info as EI on E.EmployeeID = EI.EmployeeID
+FROM Employee as E JOIN Employee_Address as EA on E.EmployeeID = EA.EmployeeID
 WHERE E.EmployeeID = 390054489;                                                                                     
-
-
 
 
 -- ************************************************************************************************
 -- (You may ignore the part of Exhibit F showing Gross, Deductions, Check#, etc.)                 *
 -- ************************************************************************************************
 -- Exhibit F, Regular Pay
+SELECT P.Name AS 'Job',
+    PI.JobClassification AS 'Skill'
+    PI.HourlyPay AS 'Rate',
+    PI.FringePay,
+    PI.NumberOfHours AS 'Hours',
+    Sum(HourlyPay + Fringe) AS 'Total'
+FROM Project as P join Pay_Info AS PI on P.ProjectID = PI.ProjectID;
 
 
 -- Exhibit F, Overtime Pay
+SELECT P.Name AS 'Job',
+    PI.JobClassification AS 'Skill'
+    PI.HourlyPay AS 'Rate',
+    PI.FringePay,
+    PI.OverTimeHours AS 'Hours',
+    Sum(PI.HourlyPay + PI.FringePay) AS 'Total'
+FROM Project as P join Pay_Info AS PI on P.ProjectID = PI.ProjectID;
 
 -- ************************************************************************************************
